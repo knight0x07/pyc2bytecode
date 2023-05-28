@@ -1,7 +1,8 @@
 # pyc2bytecode disassembler
 # A Python Bytecode Disassembler hepling reverse engineers in dissecting Python binaries by disassembling and analysing the Compiled python byte-code(*.pyc) files across all python versions (including Python 3.10.*) 
 # Author: https://twitter.com/knight0x07
-
+# 3.11 Version added by: focat#1687
+# Join discord.gg/varity
 
 import sys
 import time
@@ -22,6 +23,7 @@ def banner():
 
                             Author: https://twitter.com/knight0x07
                             Github: https://github.com/knight0x07
+                            Contributor: focat#1687 | discord.gg/varity
     ''')
 
 def error_banner():
@@ -32,8 +34,8 @@ def error_banner():
                         ''')
 
 MAGIC_TAG = {
-    # Defines Tuples with Multiple Python versions and there magic Numbers | Credit: https://github.com/google/pytype/blob/main/pytype/pyc/magic.py | Thanks! 
-    
+    # Defines Tuples with Multiple Python versions and there magic Numbers | Credit: Fixed by focat#1687 for Python 3.11 | https://github.com/google/pytype/blob/main/pytype/pyc/magic.py | Thanks!
+
     # Python 1
     20121: (1, 5),
     50428: (1, 6),
@@ -92,7 +94,6 @@ MAGIC_TAG = {
     # Python 3.3
     3190: (3, 3),  # a0
     3200: (3, 3),  # a0
-    3210: (3, 3),  # a1
     3220: (3, 3),  # a1
     3230: (3, 3),  # a4
 
@@ -135,6 +136,7 @@ MAGIC_TAG = {
     # Python 3.8
     3400: (3, 8),  # a1
     3401: (3, 8),  # a1
+    3410: (3, 8),  # a1
     3411: (3, 8),  # b2
     3412: (3, 8),  # b2
     3413: (3, 8),  # b4
@@ -146,7 +148,7 @@ MAGIC_TAG = {
     3423: (3, 9),  # a2
     3424: (3, 9),  # a2
     3425: (3, 9),  # a2
-    
+
     # Python 3.10
     3430: (3, 10),  # a1
     3431: (3, 10),  # a1
@@ -158,6 +160,54 @@ MAGIC_TAG = {
     3437: (3, 10),  # b1
     3438: (3, 10),  # b1
     3439: (3, 10),  # b1
+
+    # Python 3.11
+    3450: (3, 11),  # a1
+    3451: (3, 11),  # a1
+    3452: (3, 11),  # a1
+    3453: (3, 11),  # a1
+    3454: (3, 11),  # a1
+    3455: (3, 11),  # a1
+    3456: (3, 11),  # a1
+    3457: (3, 11),  # a1
+    3458: (3, 11),  # a1
+    3459: (3, 11),  # a1
+    3460: (3, 11),  # a1
+    3461: (3, 11),  # a1
+    3462: (3, 11),  # a2
+    3463: (3, 11),  # a3
+    3464: (3, 11),  # a3
+    3465: (3, 11),  # a3
+    3466: (3, 11),  # a4
+    3467: (3, 11),  # a4
+    3468: (3, 11),  # a4
+    3469: (3, 11),  # a4
+    3470: (3, 11),  # a4
+    3471: (3, 11),  # a4
+    3472: (3, 11),  # a4
+    3473: (3, 11),  # a4
+    3474: (3, 11),  # a4
+    3475: (3, 11),  # a5
+    3476: (3, 11),  # a5
+    3477: (3, 11),  # a5
+    3478: (3, 11),  # a5
+    3479: (3, 11),  # a5
+    3480: (3, 11),  # a5
+    3481: (3, 11),  # a5
+    3482: (3, 11),  # a5
+    3483: (3, 11),  # a5
+    3484: (3, 11),  # a5
+    3485: (3, 11),  # a5
+    3486: (3, 11),  # a6
+    3487: (3, 11),  # a6
+    3488: (3, 11),  # a6
+    3489: (3, 11),  # a6
+    3490: (3, 11),  # a6
+    3491: (3, 11),  # a6
+    3492: (3, 11),  # a7
+    3493: (3, 11),  # a7
+    3494: (3, 11),  # a7
+    3495: (3, 11),  # b4
 }
 
 def magic_to_version(magic):
@@ -333,4 +383,4 @@ except IndexError:
     print("\n[-] Invalid Command")
     error_banner()
     
-
+# focat wuz here
